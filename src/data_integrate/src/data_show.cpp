@@ -23,7 +23,7 @@ float MAP_RESOL = 0.015;             // Map resoultion [cm]
 int MAP_WIDTH = 400;
 int MAP_HEIGHT = 400;
 int MAP_CENTER = 50;
-int OBSTACLE_PADDING = 2;           // Obstacle Size
+int OBSTACLE_PADDING = 1;           // Obstacle Size
 int OBSTACLE_CONNECT_MAX = 15;      // Range to connect obstacles
 
 int init_ball;
@@ -97,8 +97,8 @@ int main(int argc, char **argv)
         int cx1, cx2, cy1, cy2;
         for(int i = 0; i < lidar_size; i++)
         {
-            obstacle_x = lidar_distance[i]*cos(lidar_degree[i]);
-            obstacle_y = lidar_distance[i]*sin(lidar_degree[i]);
+            obstacle_x = lidar_distance[i]*cos(lidar_degree[i]+3.14159265359);
+            obstacle_y = lidar_distance[i]*sin(lidar_degree[i]+3.14159265359);
             cx = MAP_WIDTH/2 + (int)(obstacle_y/MAP_RESOL);
             cy = MAP_HEIGHT/2 + (int)(obstacle_x/MAP_RESOL);
             cx1 = cx-OBSTACLE_PADDING;
